@@ -4,7 +4,6 @@
  */
 package database;
 
-import java.io.*;
 import java.sql.*;
 /**
  *
@@ -18,8 +17,8 @@ public class DBConnection {
     private static Connection conexao;
     
     public DBConnection(String user, String senha, String driver, String url) throws ClassNotFoundException {
-        this.user = user;
-        this.password = senha;
+        DBConnection.user = user;
+        DBConnection.password = senha;
         this.driver = driver;
         this.url = url;
         Class.forName(driver); //carrega o drive. Pode gerar ClassNotFoundException
@@ -33,8 +32,7 @@ public class DBConnection {
     }
 
     private static void openConnection() throws SQLException{ 
-        conexao = DriverManager.getConnection(url, user, password); // abre a conex�o para esta URL usando o driver carregado na linha anterior
-        
+        conexao = DriverManager.getConnection(url, user, password); // abre a conex�o para esta URL usando o driver carregado na linha anterior   
     }
 
     /**

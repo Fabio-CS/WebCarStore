@@ -1,0 +1,245 @@
+/* 
+    Document   : estilos
+    Created on : 22/11/2012, 09:15:06
+    Author     : Cícero
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* CSS Reset */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, font, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline; }
+
+ol, ul { list-style: none; }            
+
+body{
+    text-align: center;
+    font-family: arial,tahoma,verdana;   
+}
+
+a {cursor: pointer;}
+
+#login{
+    position: absolute;
+    width: 630px;
+    height: 330px;
+    top: 50%;
+    left: 50%;
+    margin-left: -315px;
+    margin-top: -230px;
+    background: #ddd url('../img/logo.png') no-repeat left center;
+    border: solid 1px #999;
+    text-align: left;
+}
+
+#login h2{  
+    padding-top: 40px;
+    padding-left: 310px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#login h6{
+    padding-top: 40px;
+    padding-left: 310px;
+    font-size: 16px;
+}
+
+#login form{
+    float: right;
+    padding-top: 15px;
+    padding-right: 50px;
+    font-size: 90%;
+}
+#login form input{
+    margin: 3px;
+}
+
+#tudo{
+    width: 1024px;
+    margin: 10px auto;
+    text-align: left;            
+}
+#topo{
+    position: relative;
+    height: 110px;
+    padding: 10px;
+    border-bottom: 1px solid #000;
+}
+#topo img {
+    float:left;
+}
+#titulo {
+    margin: 15px;
+    float:left;     
+}
+#tudo h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+#tudo h3 {
+    font-size: 18px;
+}
+#logado{
+    padding: 10px;
+    float:right;
+    width: 300px;
+}
+#logado img {
+    float: left;
+}
+#logado .text{
+    float: right;
+    font-size: 16px;
+    line-height: 160%;
+}
+#logado .text span{
+    font-weight: bold;
+    color: #0066ff;
+}
+#logado .text a{
+    color: red;
+    float: right;
+}
+
+#menu_admin{
+    margin: 10px auto;
+    width: 600px;
+    height: 50px;
+}
+menu_admin ul {                
+    border: 1px solid #ccc;
+
+}
+#menu_admin ul li{
+    padding: 2px;
+    float: left;               
+    text-align: center;
+    border: 1px solid #ccc;             
+}
+#menu_admin ul li a{
+    width: 100px;
+    height: 30px;
+    display: block;
+    color: #000;
+    padding-top: 12px;
+    text-decoration: none;
+    background-color: #eee;
+}
+#menu_admin ul li a:hover{
+    background-color: #fff;
+    color: #666;
+}
+
+#conteudo {
+    position: relative;
+    height: 500px;
+}
+
+.divs {
+    display: none;
+}
+
+.listagem {
+    position: relative;
+    margin: 15px auto;
+}
+
+.cancel{
+    margin-left: 5px;
+}
+
+.btn_cadastrar{
+    background: url('../img/cadastrar.png') no-repeat right bottom;
+    padding-right: 35px;
+    padding-left: 50px;
+    float: right;              
+    height: 30px;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold; 
+    vertical-align: middle;
+    display: table-cell;
+}    
+
+.listagem table {
+    font-size: 95%;
+    border: 1px dotted #666;
+    width: 100%;
+}
+
+.listagem tr.gray2 {
+    background: #ddd;
+}
+
+.listagem th {
+    height: 1.3em;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.listagem tr.gray {
+    background: #eee;
+}
+
+.listagem tr.white {
+    background: #fff;
+}
+
+.listagem td {
+    height: 1.3em;
+    text-align: center;
+}
+
+.formulario form{
+    margin: 20px auto;
+    width: 500px;
+    position: relative;
+}
+
+label,  input {
+    display: block;
+    float: left;
+}
+
+label {	
+    text-align: left;
+    width: 150px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}            
+
+br {
+    clear: left;
+}
+
+.img_crud {
+    width: 80px;
+}
+
+.img_crud input{
+    padding-left: 30px;
+    padding-top: 5px;
+}
+
+#rodape{
+    text-align: center;
+    height: 30px;
+}

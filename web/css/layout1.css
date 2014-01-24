@@ -1,0 +1,168 @@
+/*  
+Name: Nova Marca Imóveis
+Author: Izytech Informática
+Author URL: http://www.izytech.com.br
+*/
+
+/* CSS Reset */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, font, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline; }
+
+ol, ul { list-style: none; }
+
+
+body {
+    background: #69f;
+}
+
+#tudo {
+    width: 980px;
+    background: #fff;
+    position: relative;
+    margin: 10px auto;
+    font-family: arial;
+    border: dotted 1px #666;
+}
+
+#topo {
+    background: #eef;
+    width: 980px;
+    height: 290px;
+    border-bottom: double 2px #16f;
+}
+
+.img_topo {
+    float: left;   
+    /*border: 1px dotted red;*/
+}
+
+.titulo {
+    float: left;
+    padding: 60px 50px;
+    font-size: 30px;
+    width: 550px;
+    /*border: 1px dotted #0f0;*/
+    text-align: center;
+    color: #149;
+}
+
+.titulo span {
+    font-weight: bold;
+    font-size: 45px;
+    color: #000;
+}
+
+
+#anunciosh {
+    clear: both;
+    /*border: #0f0 solid 1px;*/
+    width: 980px;
+    margin: 10px;
+    position: relative;
+}
+
+.anunciosh_box {
+    border: #666 solid 1px;
+    float: left;
+    background: #eee;
+    padding: 5px;
+    width: 300px;
+    height:250px;
+    margin: 5px;
+}
+
+
+.anunciosh_box_in {
+    /*border: #0f0 solid 1px;*/
+    position: relative;
+    padding: 5px;
+    width: 290px;
+    height: 240px;
+    color:#333;
+}
+
+.anunciosh_marca {
+    color:#036;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size:24px;
+    font-weight: bold;
+}
+
+.anunciosh_modelo {
+    color:#036;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    font-size:22px;
+}
+
+.anunciosh_ano {
+    color:#036;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    font-size:22px;
+}
+
+.anunciosh_valor {
+    color:#000;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.anunciosh_box_in:hover {background: #fff;}
+
+
+.anunciosh_box_in a {
+    color:#16f;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size:16px;
+    font-weight: bold;
+    font-style: italic;
+    display: block;
+}
+
+.anunciosh_box_in a:hover {
+    color:#036;
+    font-weight: bold;
+}
+
+
+.anunciosh_box_in .anunciosh_interesse {
+
+}
+
+
+#rodape {
+    clear:both;
+    width: 960px;
+    height: 50px;
+    background: #69f;
+    color: #fff;
+    padding-top: 15px;
+    text-align: center;
+    margin: 10px;
+}

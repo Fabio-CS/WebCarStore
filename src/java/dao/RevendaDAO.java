@@ -26,7 +26,7 @@ public class RevendaDAO implements InterfaceDAO{
     }
     
     @Override
-    public void inserir(Object obj) throws SQLException {
+    public boolean inserir(Object obj) throws SQLException {
         Revenda rev = (Revenda) obj;
         Connection conexao = DBConnection.getInstance();
         
@@ -34,18 +34,31 @@ public class RevendaDAO implements InterfaceDAO{
         
         PreparedStatement stmt = conexao.prepareStatement(sql);
         stmt.setString(1, rev.getNome());
-        stmt.setString(2, rev.getEndereco());
-        stmt.setString(3, rev.getCNPJ());
-        stmt.setString(4, rev.getFone());
-        stmt.setString(5, rev.getSetor());
-        stmt.setString(6, rev.getEmail());
+        stmt.setLong(2, rev.getCNPJ());
+        stmt.setString(3, rev.getEmail());
+        stmt.setString(4, rev.getEndereco());
+        stmt.setLong(5, rev.getNumero());
+        stmt.setString(6, rev.getCidade());
+        stmt.setString(7, rev.getEstado());
+        stmt.setString(8, rev.getBairro());
+        stmt.setLong(9, rev.getFone());
+        stmt.setInt(10, rev.getAtivo());
         stmt.execute();
-        conexao.close();
+        stmt.close();
+        return true;
     }
 
     @Override
-    public void excluir(Object obj) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public boolean excluir(Object obj) throws SQLException {
+        Integer num = (Integer) obj;
+        int id = num.intValue();
+        Connection conexao = DBConnection.getInstance();
+        String sql = (String) dados.get("Inativa.Revenda");
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+        stmt.setInt(1, id);
+        stmt.execute();
+        stmt.close();
+        return true;
     }
 
     @Override
@@ -58,7 +71,17 @@ public class RevendaDAO implements InterfaceDAO{
         
         while (rs.next()){
             Revenda r = new Revenda();
-            r.setId(rs.getInt(1));
+            r.setId(rs.getInt("id_revenda"));
+            r.setCNPJ(rs.getLong("cnpj"));
+            r.setNome(rs.getString("nome"));
+            r.setEmail(rs.getString("mail"));
+            r.setEndereco(rs.getString("endereco"));
+            r.setNumero(rs.getInt("numero"));
+            r.setCidade(rs.getString("cidade"));
+            r.setEstado(rs.getString("estado"));
+            r.setBairro(rs.getString("bairro"));
+            r.setData_cadastro(rs.getString("data_cadastro"));
+            r.setFone(rs.getLong("telefone"));
             revList.add(r);
         }
         pstmt.close();
@@ -67,25 +90,77 @@ public class RevendaDAO implements InterfaceDAO{
 
     @Override
     public Object pesquisarChave(int chave) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void editar(Object obj) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-    
-    public Revenda pesquisarLogin(String login) throws SQLException {
         Connection conexao = DBConnection.getInstance();
-        Revenda usuario = null;
-        String sql = (String) dados.get("SelectByLogin.Revenda");
+        Revenda r = null;
+        String sql = (String) dados.get("SelectById.Revenda");
         PreparedStatement pstmt = conexao.prepareStatement(sql);
-        pstmt.setString(1, login);
+        pstmt.setInt(1, chave);
         ResultSet rs = pstmt.executeQuery();
         while (rs.next()){
-            //Completar depois.
+            r = new Revenda();
+            r.setId(rs.getInt("id_revenda"));
+            r.setCNPJ(rs.getLong("cnpj"));
+            r.setNome(rs.getString("nome"));
+            r.setEmail(rs.getString("mail"));
+            r.setEndereco(rs.getString("endereco"));
+            r.setNumero(rs.getInt("numero"));
+            r.setCidade(rs.getString("cidade"));
+            r.setEstado(rs.getString("estado"));
+            r.setBairro(rs.getString("bairro"));
+            r.setData_cadastro(rs.getString("data_cadastro"));
+            r.setFone(rs.getLong("telefone"));
         }
         pstmt.close();
-        return usuario;
+        return r;
+    }
+
+    public Object pesquisarNome(String nome) throws SQLException {
+        Connection conexao = DBConnection.getInstance();
+        Revenda r = null;
+        
+        String sql = (String) dados.get("SelectByName.Revenda");
+        PreparedStatement pstmt = conexao.prepareStatement(sql);
+        pstmt.setString(3, nome);
+        ResultSet rs = pstmt.executeQuery();
+        
+        while (rs.next()) {            
+            r = new Revenda();
+            r.setId(rs.getInt("id_revenda"));
+            r.setCNPJ(rs.getLong("cnpj"));
+            r.setNome(rs.getString("nome"));
+            r.setEmail(rs.getString("email"));
+            r.setEndereco(rs.getString("endereco"));
+            r.setNumero(rs.getInt("numero"));
+            r.setCidade(rs.getString("cidade"));
+            r.setEstado(rs.getString("estado"));
+            r.setBairro(rs.getString("bairro"));
+            r.setData_cadastro(rs.getString("data_cadastro"));
+            r.setFone(rs.getLong("telefone"));
+        }
+        pstmt.close();
+        return r;
+    }
+    
+    @Override
+    public boolean editar(Object obj) throws SQLException {
+        Revenda rev = (Revenda) obj;
+        Connection conexao = DBConnection.getInstance();
+        String sql = (String) dados.get("Update.Revenda");
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+        stmt.setString(1, rev.getNome());
+        stmt.setLong(2, rev.getCNPJ());
+        stmt.setString(3, rev.getEmail());
+        stmt.setString(4, rev.getEndereco());
+        stmt.setInt(5, rev.getNumero());
+        stmt.setString(6, rev.getCidade());
+        stmt.setString(7, rev.getEstado());
+        stmt.setString(8, rev.getBairro());
+        stmt.setLong(9, rev.getFone());
+        stmt.setInt(10, rev.getAtivo());
+        stmt.setInt(11, rev.getId());
+
+        stmt.execute();
+        stmt.close();
+        return true;
     }
 }
